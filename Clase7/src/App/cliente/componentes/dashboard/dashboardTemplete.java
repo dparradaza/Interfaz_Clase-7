@@ -20,8 +20,8 @@ public class dashboardTemplete extends JPanel{
     private RecursosService sRecursos; 
 
     // Declaración Objetos Gráficos 
-    private JPanel pMision, pVision, pNosotros, pAcciones,pRequests;
-    private JLabel lAcciones;
+    private JPanel pMision, pVision, pNosotros, pAcciones,pRequests,pCharts,pProject,pIlustracion;
+    private JLabel lAcciones,lService;
 
     // Declaración Objetos Decoradores
     private ImageIcon iTarjeta1, iTarjeta2, iTarjeta3;
@@ -41,6 +41,9 @@ public class dashboardTemplete extends JPanel{
         this.crearContenidoTask();
         this.crearContenidoPAcciones();
         this.crearContenidoReq();
+        this.crearContenidopanelchart();
+        this.crearContenidoproject();
+        this.crearContenidoilustracion();
         
         
         this.setSize(900, 600);
@@ -63,8 +66,18 @@ public class dashboardTemplete extends JPanel{
         this.pRequests= sObjGraficos.construirJPanel(650, 15, 200, 90, Color.WHITE, null);
         this.add(pRequests);
         
-        this.pAcciones = sObjGraficos.construirJPanel(20, 260, 810, 330, Color.WHITE, null);
+        this.pAcciones = sObjGraficos.construirJPanel(20, 130, 500, 280, Color.WHITE, null);
         this.add(pAcciones);
+        
+        this.pCharts= sObjGraficos.construirJPanel(540, 130, 300, 280, Color.WHITE, null);
+        this.add(pCharts);
+       
+        this.pProject= sObjGraficos.construirJPanel(20, 430, 400, 150, Color.WHITE, null);
+        this.add(pProject);
+       
+        this.pIlustracion= sObjGraficos.construirJPanel(450, 430, 400, 150, Color.WHITE, null);
+        this.add(pIlustracion);
+        
         
         
     }
@@ -73,10 +86,10 @@ public class dashboardTemplete extends JPanel{
         this.iTarjeta1 = new ImageIcon("recursos/pesos.png");
         this.iTarjeta2 = new ImageIcon("recursos/pesos.png");
         this.iTarjeta3 = new ImageIcon("recursos/mensaje.png");
-        this.iClase = new ImageIcon("recursos/perfil.png");
-        this.iPantalla = new ImageIcon("recursos/perfil.png");
-        this.iCelular = new ImageIcon("recursos/perfil.png");
-        this.iIdea = new ImageIcon("recursos/perfil.png");
+        this.iClase = new ImageIcon("recursos/grafica.png");
+        this.iPantalla = new ImageIcon("recursos/grafica2.png");
+        this.iCelular = new ImageIcon("recursos/grafica3.png");
+        this.iIdea = new ImageIcon("recursos/grafica4.png");
         this.iEstadistica = new ImageIcon("recursos/perfil.png");
         this.iDireccion = new ImageIcon("recursos/perfil.png");
     }
@@ -87,7 +100,8 @@ public class dashboardTemplete extends JPanel{
                 "Earnings ", 
                 iTarjeta1, 
                 "$40.000",
-                sRecursos.getBordeizq()
+                sRecursos.getBordeizq(),
+                30,30
             ).getTarjetaTemplate()
         );
     }
@@ -98,7 +112,8 @@ public class dashboardTemplete extends JPanel{
                 "Eargs", 
                 iTarjeta2, 
                 "$215.000",
-                sRecursos.getBordeizqVerde()
+                sRecursos.getBordeizqVerde(),
+                30,30
             ).getTarjetaTemplate()
         );
     }
@@ -109,7 +124,9 @@ public class dashboardTemplete extends JPanel{
                 "Tasks", 
                 iTarjeta3, 
                 "50%",
-                sRecursos.getBordeizqNaranja()
+                sRecursos.getBordeizqNaranja(),
+                30,30
+               
             ).getTarjetaTemplate()
         );
     }
@@ -120,7 +137,8 @@ public class dashboardTemplete extends JPanel{
                 "Requests", 
                 iTarjeta3, 
                 "18",
-                sRecursos.getBordeizq()
+                sRecursos.getBordeizq(),
+                30,30
             ).getTarjetaTemplate()
         );
     }
@@ -131,69 +149,77 @@ public class dashboardTemplete extends JPanel{
                 "Requests", 
                 iTarjeta3, 
                 "18",
-                sRecursos.getBordeizq()
+                sRecursos.getBordeizq(),
+                30,30
             ).getTarjetaTemplate()
         );
     }
     
     public void crearContenidoPAcciones(){
         this.lAcciones = sObjGraficos.construirJLabel(
-            "Nuestros Servicios", 10, 10, 160, 30, null, sRecursos.getColorAzul(), null, sRecursos.getFontTitulo(), "c"
+            "Earnings Overview", 10, 10, 160, 30, null, sRecursos.getColorAzul(), null, sRecursos.getFontBotones(), "c"
         );
         this.pAcciones.add(lAcciones);
 
-        // COMPONENTE ACCIÓN 1 ------------------------------------
         AccionTemplate p1= new AccionComponent(
             iClase, 
-            "Clases", 
-            "Clases a la comunidad que complementan el pensum."
+            "", 
+            "",
+            400,240
         ).getAccionTemplate();
-        p1.setLocation(15, 50);
+        p1.setLocation(10, 20);
         this.pAcciones.add(p1);
-
-        // COMPONENTE ACCIÓN 2 ------------------------------------
-        AccionTemplate p2= new AccionComponent(
-            iPantalla, 
-            "Clases Virtuales", 
-            "Cursos virtuales como medio de enseñanza."
-        ).getAccionTemplate();
-        p2.setLocation(30 + p2.getWidth(), 50);
-        this.pAcciones.add(p2);
-
-        // COMPONENTE ACCIÓN 3 ------------------------------------
-        AccionTemplate p3= new AccionComponent(
-            iIdea, 
-            "Generación de ideas", 
-            "Desarrollo de ideas con tecnologías actuales."
-        ).getAccionTemplate();
-        p3.setLocation(45 + p3.getWidth() * 2, 50);
-        this.pAcciones.add(p3);
-
-        // COMPONENTE ACCIÓN 4 ------------------------------------
-        AccionTemplate p4= new AccionComponent(
-            iCelular, 
-            "Notificaciones", 
-            "Notificaión el estado de tus cursos y actividades."
-        ).getAccionTemplate();
-        p4.setLocation(15, 65 + p4.getHeight());
-        this.pAcciones.add(p4);
-
-        // COMPONENTE ACCIÓN 5 ------------------------------------
-        AccionTemplate p5= new AccionComponent(
-            iEstadistica, 
-            "Estadisticas", 
-            "Gestión de participación en nuestros cursos."
-        ).getAccionTemplate();
-        p5.setLocation(30 + p5.getWidth(), 65 + p5.getHeight());
-        this.pAcciones.add(p5);
-
-        // COMPONENTE ACCIÓN 6 ------------------------------------
-        AccionTemplate p6= new AccionComponent(
-            iDireccion, 
-            "Dirección", 
-            "Damos direcciónamiento a nuestros estudiantes."
-        ).getAccionTemplate();
-        p6.setLocation(45 + p6.getWidth() * 2, 65 + p6.getHeight());
-        this.pAcciones.add(p6);
+      
+        
     }
+    
+    public void crearContenidopanelchart() {
+        this.lService = sObjGraficos.construirJLabel(
+                "Revenue Sources", 10, 10, 160, 30, null, sRecursos.getColorAzul(), null, sRecursos.getFontBotones(), "c"
+            );
+            this.pCharts.add(lService);
+
+            AccionTemplate p2= new AccionComponent(
+            		iPantalla, 
+                "", 
+                "",
+                200,220
+            ).getAccionTemplate();
+            p2.setLocation(10, 20);
+            this.pCharts.add(p2);
+    }
+    
+    public void crearContenidoproject() {
+        this.lService = sObjGraficos.construirJLabel(
+                "Projects", 10, 10, 160, 30, null, sRecursos.getColorAzul(), null, sRecursos.getFontBotones(), "c"
+            );
+            this.pProject.add(lService);
+
+            AccionTemplate p2= new AccionComponent(
+            		iIdea, 
+                "", 
+                "",
+                320,100
+            ).getAccionTemplate();
+            p2.setLocation(10, 30);
+            this.pProject.add(p2);
+    	
+    }
+    
+    public void crearContenidoilustracion() {
+    	 this.lService = sObjGraficos.construirJLabel(
+                 "Ilustrations", 10, 10, 160, 30, null, sRecursos.getColorAzul(), null, sRecursos.getFontBotones(), "c"
+             );
+             this.pIlustracion.add(lService);
+
+             AccionTemplate p2= new AccionComponent(
+             		iCelular, 
+                 "", 
+                 "",
+                 300,100
+             ).getAccionTemplate();
+             p2.setLocation(10, 30);
+             this.pIlustracion.add(p2);
+    }
+    
 }

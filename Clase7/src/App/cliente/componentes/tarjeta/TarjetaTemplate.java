@@ -27,7 +27,7 @@ public class TarjetaTemplate extends JPanel{
     private ImageIcon iDimAux;
 
     public TarjetaTemplate(
-        TarjetaComponent tarjetaComponent, String titulo, ImageIcon iImagen, String parrafo, Border borde
+        TarjetaComponent tarjetaComponent, String titulo, ImageIcon iImagen, String parrafo, Border borde, int x, int y
     ){
 
         this.tarjetaComponent = tarjetaComponent;

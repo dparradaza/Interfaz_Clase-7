@@ -8,10 +8,10 @@ public class TarjetaComponent{
     private TarjetaTemplate tarjetaTemplate;
 
     public TarjetaComponent(
-        String titulo, ImageIcon iImagen, String parrafo,Border borde
+        String titulo, ImageIcon iImagen, String parrafo,Border borde , int x, int y
     ){
         tarjetaTemplate = new TarjetaTemplate(
-            this, titulo, iImagen, parrafo,borde
+            this, titulo, iImagen, parrafo,borde,x,y
         );
     }
 

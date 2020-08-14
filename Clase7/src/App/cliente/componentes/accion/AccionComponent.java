@@ -7,10 +7,10 @@ public class AccionComponent {
     private AccionTemplate accionTemplate;
 
     public AccionComponent(
-        ImageIcon imagen, String titulo, String parrafo
+        ImageIcon imagen, String titulo, String parrafo,int x, int y
     ){
         this.accionTemplate= new AccionTemplate(
-            this, imagen, titulo, parrafo
+            this, imagen, titulo, parrafo , x, y
         );
     }
 
