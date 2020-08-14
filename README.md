@@ -9,4 +9,4 @@ Sigle page aplication, dash board com reutilización de componentes
 
 El final esperado es con base en la siguiente imagen
 
-![Alt text](Clase6/recursos/Proyecto.png?raw=true "calse7")
+![Alt text](Clase7/recursos/Proyecto.png?raw=true "calse7")
