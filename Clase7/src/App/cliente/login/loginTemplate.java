@@ -101,7 +101,7 @@ public class loginTemplate extends JFrame{
 	public void passwordField() {
 		tClaveUsuario = sObjGraficos.construirJPasswordField("", ((pDerecha.getWidth() - 300) / 2), 180, 300,
 				40, new Color(78, 115, 223), Color.DARK_GRAY, Color.BLUE, null,
-				border, "c");
+				sRecursos.getBorder(), "c");
 		pDerecha.add(tClaveUsuario);
 
 	}
